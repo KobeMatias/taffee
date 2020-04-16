@@ -27,7 +27,7 @@ h1 {
     color: red;
 }
 
-#question, #choice, #result, #timer {
+#question, #choice, #result, #timer, #highscore {
     text-align: center;
     margin-bottom: 1rem;
 }
@@ -35,7 +35,7 @@ h1 {
     font-weight: 500;
 }
 
-#question, #timer {
+#question, #timer, #highscore {
     font-size: 20px;
 }
 

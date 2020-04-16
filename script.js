@@ -9,17 +9,13 @@ var questions = [
         choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
         answer: "parentheses",
     },
-    {
-        question:"The condition in an if / else statement is enclosed within ____.",
-        choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
-        answer: "parentheses",
-    },
 ];
 
 var questionDiv = document.querySelector("#question");
 var choiceUl = document.querySelector("#choice");
 var resultDiv = document.querySelector("#result");
 var timerDiv = document.querySelector("#timer")
+var highscoreDiv = document.querySelector("#highscore")
 
 var questionIndex = 0;
 var correctCount = 0;
@@ -31,17 +27,50 @@ function endQuiz() {
     clearInterval(intervalID);
     questionDiv.innerHTML = "Game Over! Your score is: " + correctCount;
     choiceUl.innerHTML = "";
+    resultDiv.innerHTML = "";
+    timerDiv.innerHTML = "";
+    setTimeout(showHighscore, 2);
+}
+
+function showHighscore() {
+    var name = prompt("Please enter your name");
+
+    var high_scores = localStorage.getItem("scores");
+
+    if (!high_scores) {
+        high_scores = [];
+    } else {
+        high_scores = JSON.parse(high_scores);
+    }
+
+    high_scores.push({ name: name, score: correctCount });
+
+    localStorage.setItem("scores", JSON.stringify(high_scores));
+
+    high_scores.sort(function (a, b) {
+        return b.score - a.score;
+    });
+
+    var contentUl = document.createElement("ul");
+
+    for (var i = 0; i < high_scores.length; i++) {
+        var contentLi = document.createElement("li");
+        contentLi.textContent = 
+            "Name: " + high_scores[i].name + " Score: " + high_scores[i].score;
+        contentUl.appendChild(contentLi);
+    }
+    highscoreDiv.appendChild(contentUl);
 }
 
 function updateTime() {
     time--;
     timerDiv.textContent = "Time Left: " + time;
-    if (time <= 15) {
-        timerDiv.classList.add("redtext");
-        if (time <= 0) {
+    if (time <= 0) {
         endQuiz();
-        }
-    }
+    };
+    if (time <= 15) {
+        timerDiv.classList.add("redtext"); 
+    };
 }
     
 
@@ -80,6 +109,7 @@ function nextQuestion() {
 }
 
 function checkAnswer(event) {
+    clearInterval(intervalID);
     if (event.target.matches("li")) {
         var answer = event.target.textContent;
         if (answer === questions[questionIndex].answer) {
@@ -90,7 +120,7 @@ function checkAnswer(event) {
             resultDiv.classList.add("redtext");
             resultDiv.textContent = "INCORRECT!";
             time = time - 2;
-            timerDiv.textContent = time;
+            timerDiv.textContent = "Time Left: " + time;
         }
     }
     setTimeout(nextQuestion, 2000);
