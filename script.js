@@ -1,13 +1,18 @@
 var questions = [
     {
-        question: "Commonly used data types DO NOT include:",
-        choices: ["strings", "booleans", "alerts", "numbers"],
-        answer: "alerts",
+        question: "Which does not belong?",
+        choices: ["Civic", "Accord", "Corolla", "Clarity"],
+        answer: "Corolla",
     },
     {
-        question: "The condition in an if / else statement is enclosed within ____.",
-        choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
-        answer: "parentheses",
+        question: "The Dodge Hellcat Redeye makes _____ horsepower.",
+        choices: ["953", "797", "717", "826"],
+        answer: "797",
+    },
+    {
+        question: "The R34 Skyline GT-R was manufactured from ____ until ____.",
+        choices: ["1999 - 2002", "1998 - 2001", "2000 - 2003", "1997 - 2000"],
+        answer: "1999 - 2002",
     },
 ];
 
@@ -16,6 +21,7 @@ var choiceUl = document.querySelector("#choice");
 var resultDiv = document.querySelector("#result");
 var timerDiv = document.querySelector("#timer")
 var highscoreDiv = document.querySelector("#highscore")
+var highscoreBtn = document.querySelector("#highscoreBtn")
 
 var questionIndex = 0;
 var correctCount = 0;
@@ -56,7 +62,7 @@ function showHighscore() {
     for (var i = 0; i < high_scores.length; i++) {
         var contentLi = document.createElement("li");
         contentLi.textContent = 
-            "Name: " + high_scores[i].name + " Score: " + high_scores[i].score;
+            "Name: " + high_scores[i].name + " | Score: " + high_scores[i].score;
         contentUl.appendChild(contentLi);
     }
     highscoreDiv.appendChild(contentUl);
@@ -126,6 +132,15 @@ function checkAnswer(event) {
     setTimeout(nextQuestion, 2000);
 }
 
+// function viewHighscores() {
+//     clearInterval(intervalID);
+//     questionDiv.innerHTML = "Game Over!";
+//     choiceUl.innerHTML = "";
+//     resultDiv.innerHTML = "";
+//     timerDiv.innerHTML = "";
+//     showHighscoreSkip();
+// }
+
 displayQuestion();
 choiceUl.addEventListener("click", checkAnswer);
-
+highscoreBtn.addEventListener("click", endQuiz);

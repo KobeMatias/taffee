@@ -19,6 +19,25 @@ h1 {
     font-weight: 700;
 }
 
+ul {
+    list-style-type: none;
+}
+
+.ctrbtn {
+    text-align: center;
+}
+
+.startbtn {
+    font-size: 30px;
+    margin-top: 1rem;
+}
+
+.quizbtn {
+    width: 70%;
+    font-weight: 500;
+    font-size: 30px;
+}
+
 .greentext {
     color: green;
 }
