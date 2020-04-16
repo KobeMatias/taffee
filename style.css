@@ -55,15 +55,29 @@ ul {
 }
 
 #question, #timer, #highscore {
-    font-size: 20px;
+    font-size: 25px;
 }
 
 #choice {
-    font-size: 18px;
+    font-size: 27px;
 }
 
 #result {
-    font-size: 22px;
+    font-size: 30px;
     font-weight: 500;
     font-style: italic;
+}
+
+/* animation CSS */
+
+.zoom {
+    transition: transform .2s;
+}
+
+.zoom:hover {
+    transform: scale(1.1) !important; 
+}
+
+.delay-1qtr {
+    animation-delay: .25s;
 }
