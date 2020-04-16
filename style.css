@@ -1,0 +1,47 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.container {
+    background-color: #f3f3f3;
+    margin-top: 2rem;
+    border-radius: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+h1 {
+    text-align: center;
+    font-weight: 700;
+}
+
+.correct {
+    color: green;
+}
+
+.incorrect {
+    color: red;
+}
+
+#question, #choice, #result {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+#question {
+    font-size: 20px;
+}
+
+#choice {
+    font-size: 18px;
+}
+
+#result {
+    font-size: 22px;
+    font-weight: 500;
+    font-style: italic;
+}
