@@ -136,15 +136,6 @@ function checkAnswer(event) {
     setTimeout(nextQuestion, 2000);
 }
 
-// function viewHighscores() {
-//     clearInterval(intervalID);
-//     questionDiv.innerHTML = "Game Over!";
-//     choiceUl.innerHTML = "";
-//     resultDiv.innerHTML = "";
-//     timerDiv.innerHTML = "";
-//     showHighscoreSkip();
-// }
-
 displayQuestion();
 choiceUl.addEventListener("click", checkAnswer);
 highscoreBtn.addEventListener("click", endQuiz);
