@@ -75,6 +75,10 @@ ul {
 }
 /* animation CSS */
 
+li:hover {
+    color: royalblue;
+}
+
 .zoom {
     transition: transform .2s;
 }
