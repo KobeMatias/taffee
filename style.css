@@ -27,7 +27,7 @@ ul {
     text-align: center;
 }
 
-.startbtn {
+.startbtn, .hsbtn {
     font-size: 30px;
     margin-top: 1rem;
 }
@@ -69,6 +69,10 @@ ul {
     font-style: italic;
 }
 
+ul {
+    padding: 0;
+    margin: 0;
+}
 /* animation CSS */
 
 .zoom {
@@ -81,4 +85,8 @@ ul {
 
 .delay-1qtr {
     animation-delay: .25s;
+}
+
+.delay-2qtr {
+    animation-delay: .50s;
 }
